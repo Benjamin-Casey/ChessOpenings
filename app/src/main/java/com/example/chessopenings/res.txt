@@ -1,0 +1,6 @@
+https://stackoverflow.com/questions/52235810/drawing-a-dynamic-custom-view-chess-board-in-android
+
+https://www.geeksforgeeks.org/design-a-chess-game/
+
+https://www.youtube.com/user/zhijunsheng/videos
+
