@@ -61,32 +61,80 @@ public class ChessBoard extends View {
         return y0 + squareSize * (flipped ? y : 7 - y);
     }
 
-    private void resetBoard(Canvas canvas) {
+    // private void resetBoard(Canvas canvas) {
+    //     // Black pieces
+    //     canvas.drawBitmap(brook, null, tiles[0][7].getSquare(), pain);
+    //     canvas.drawBitmap(bknight, null, tiles[1][7].getSquare(), pain);
+    //     canvas.drawBitmap(bbishop, null, tiles[2][7].getSquare(), pain);
+    //     canvas.drawBitmap(bqueen, null, tiles[3][7].getSquare(), pain);
+    //     canvas.drawBitmap(bking, null, tiles[4][7].getSquare(), pain);
+    //     canvas.drawBitmap(bbishop, null, tiles[5][7].getSquare(), pain);
+    //     canvas.drawBitmap(bknight, null, tiles[6][7].getSquare(), pain);
+    //     canvas.drawBitmap(brook, null, tiles[7][7].getSquare(), pain);
+    //     for(int i = 0; i < 8; i++)
+    //     {
+    //         canvas.drawBitmap(bpawn, null, tiles[i][6].getSquare(), pain);
+    //     }
+    //     // White pieces
+    //     canvas.drawBitmap(wrook, null, tiles[0][0].getSquare(), pain);
+    //     canvas.drawBitmap(wknight, null, tiles[1][0].getSquare(), pain);
+    //     canvas.drawBitmap(wbishop, null, tiles[2][0].getSquare(), pain);
+    //     canvas.drawBitmap(wqueen, null, tiles[3][0].getSquare(), pain);
+    //     canvas.drawBitmap(wking, null, tiles[4][0].getSquare(), pain);
+    //     canvas.drawBitmap(wbishop, null, tiles[5][0].getSquare(), pain);
+    //     canvas.drawBitmap(wknight, null, tiles[6][0].getSquare(), pain);
+    //     canvas.drawBitmap(wrook, null, tiles[7][0].getSquare(), pain);
+    //     for(int i = 0; i < 8; i++)
+    //     {
+    //         canvas.drawBitmap(wpawn, null, tiles[i][1].getSquare(), pain);
+    //     }
+    // }
+
+    private void resetBoard(Canvas canvas) 
+    {
         // Black pieces
-        canvas.drawBitmap(brook, null, tiles[0][7].getSquare(), pain);
-        canvas.drawBitmap(bknight, null, tiles[1][7].getSquare(), pain);
-        canvas.drawBitmap(bbishop, null, tiles[2][7].getSquare(), pain);
-        canvas.drawBitmap(bqueen, null, tiles[3][7].getSquare(), pain);
-        canvas.drawBitmap(bking, null, tiles[4][7].getSquare(), pain);
-        canvas.drawBitmap(bbishop, null, tiles[5][7].getSquare(), pain);
-        canvas.drawBitmap(bknight, null, tiles[6][7].getSquare(), pain);
-        canvas.drawBitmap(brook, null, tiles[7][7].getSquare(), pain);
-        for(int i = 0; i < 8; i++)
+        tiles[0][7].setPiece(new ChessPiece(brook));
+        tiles[1][7].setPiece(new ChessPiece(bknight));
+        tiles[2][7].setPiece(new ChessPiece(bbishop));
+        tiles[3][7].setPiece(new ChessPiece(bqueen));
+        tiles[4][7].setPiece(new ChessPiece(bking));
+        tiles[5][7].setPiece(new ChessPiece(bbishop));
+        tiles[6][7].setPiece(new ChessPiece(bknight));
+        tiles[7][7].setPiece(new ChessPiece(brook));
+        // Pawns
+        for(int i = 0; i < 8; i++) 
         {
-            canvas.drawBitmap(bpawn, null, tiles[i][6].getSquare(), pain);
+            tiles[i][6].setPiece(new ChessPiece(bpawn));
         }
+
         // White pieces
-        canvas.drawBitmap(wrook, null, tiles[0][0].getSquare(), pain);
-        canvas.drawBitmap(wknight, null, tiles[1][0].getSquare(), pain);
-        canvas.drawBitmap(wbishop, null, tiles[2][0].getSquare(), pain);
-        canvas.drawBitmap(wqueen, null, tiles[3][0].getSquare(), pain);
-        canvas.drawBitmap(wking, null, tiles[4][0].getSquare(), pain);
-        canvas.drawBitmap(wbishop, null, tiles[5][0].getSquare(), pain);
-        canvas.drawBitmap(wknight, null, tiles[6][0].getSquare(), pain);
-        canvas.drawBitmap(wrook, null, tiles[7][0].getSquare(), pain);
-        for(int i = 0; i < 8; i++)
+        tiles[0][0].setPiece(new ChessPiece(wrook));
+        tiles[1][0].setPiece(new ChessPiece(wknight));
+        tiles[2][0].setPiece(new ChessPiece(wbishop));
+        tiles[3][0].setPiece(new ChessPiece(wqueen));
+        tiles[4][0].setPiece(new ChessPiece(wking));
+        tiles[5][0].setPiece(new ChessPiece(wbishop));
+        tiles[6][0].setPiece(new ChessPiece(wknight));
+        tiles[7][0].setPiece(new ChessPiece(wrook));
+        // Pawns
+        for(int i = 0; i < 8; i++) 
         {
-            canvas.drawBitmap(wpawn, null, tiles[i][1].getSquare(), pain);
+            tiles[i][2].setPiece(new ChessPiece(wpawn));
+        }
+    }
+
+    // TODO: check this.
+    // Note: probably don't need a second nested for loop. Try to fit this into draw maybe.
+    // Although, this will need to be called after every move, perhaps remove the other nested for loop for
+    private void drawPieces(Canvas canvas)
+    {
+        // For each tile, draw the piece that is on that tile if it has one.
+        for(int c = 0; c < COLS; i++){
+            for(int r = 0; r < ROWS; i++) {
+                if(tiles[c][r].getChessPiece() !! null) {
+                    canvas.drawBitmap(tiles[c][r].getChessPiece().getBmp(), null, tiles[c][r].getSquare(), pain);
+                }
+            }
         }
     }
 
