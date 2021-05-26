@@ -1,5 +1,7 @@
 package com.example.chessopenings;
 
+import android.graphics.Bitmap;
+
 public class ChessPiece {
     //private boolean alive = true;
     private Bitmap bmp = null;

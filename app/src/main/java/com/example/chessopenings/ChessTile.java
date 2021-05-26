@@ -19,7 +19,7 @@ public class ChessTile {
     }
 
     // Setters and getters
-    public ChessPiece getPiece()
+    public ChessPiece getChessPiece()
     {
         return this.piece;
     }
@@ -52,4 +52,11 @@ public class ChessTile {
     public Rect getSquare() { return this.square; }
 
     public void setSquare(Rect square) { this.square = square; }
+
+    public void movePiece(ChessTile tile) {
+        if(this.piece != null) {
+            tile.setPiece(this.piece);
+            this.piece = null;
+        }
+    }
 }

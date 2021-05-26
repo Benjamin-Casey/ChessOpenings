@@ -23,3 +23,24 @@ Main loop:
 - Move piece.
     - Move method on chessTile. Take another tile, set that tiles chesspiece to be the chesspiece on the current tile, then set the chesspiece on the current tile to Null.
         - Note: promotions might upset this since the piece isn't moving anywhere, it's just changing bmp.
+
+
+
+Table of moves:
+- Generate table
+- Add on click events to each table item
+- Update pieces/tiles.
+
+
+Draw table
+- Draws squares from 
+
+update table
+- Updates table information
+
+
+
+
+Update Table:
+- Two pieces of information - move and % played
+  - 5 sample games in an array of 5 moves,
